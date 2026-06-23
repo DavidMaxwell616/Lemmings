@@ -235,7 +235,29 @@ export class GameScene extends Phaser.Scene {
         }
 
         // Snap gently onto terrain
-        while (this.hasTerrainPixelNear(Math.floor(lemming.x), Math.floor(lemming.y), 5)) {
+        // Snap down until feet are just touching terrain
+        while (
+            !this.hasTerrainPixelNear(
+                Math.floor(lemming.x),
+                Math.floor(lemming.y + 1),
+                2
+            )
+        ) {
+            lemming.y += 1;
+
+            if (lemming.y > this.levelH + 80) {
+                lemming.destroy();
+                return;
+            }
+        }
+
+        // If inside terrain, pop upward only until clear
+        while (
+            this.isTerrainPixel(
+                Math.floor(lemming.x),
+                Math.floor(lemming.y)
+            )
+        ) {
             lemming.y -= 1;
         }
 

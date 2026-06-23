@@ -1,0 +1,11 @@
+{
+  "level_1": {
+    "hatch_position": {"x": 400,"y":100}, 
+    "exit_position": {"x": 675,"y":295} 
+    },
+  "level_2": {
+    "hatch_position": {"x": 6,"y":3}, 
+    "exit_position": {"x": 0,"y":0} 
+    }
+  
+}
